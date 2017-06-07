@@ -58,13 +58,6 @@ Reserve proxy或Endpoint map是为了将底层服务部署到广域网。如果�
 #### linux下部署 ####
 #### 使用Docker部署 ####
 
-### 运行benchmark ###
-	
-	benchmark位于test/benchmark。可以用来测试bubi底层性能。
-	下图是运行效果。
-
-![](doc/benchmark.jpg)
-
 **[未完]**
 
 Copyright © 2016 Bubi Technologies Co., Ltd
