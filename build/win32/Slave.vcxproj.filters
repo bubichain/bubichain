@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{8d3a181e-f1a8-4bec-b842-b4f80ca13c5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{904378a7-6fb9-4140-9518-5cc9be76d064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="slave">
+      <UniqueIdentifier>{736f26de-cf08-4e6f-9c73-f48531c85edb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="overlay">
+      <UniqueIdentifier>{9bb6b3db-e19f-4d69-8a16-1143881103a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="api">
+      <UniqueIdentifier>{fcf2618d-4f49-46fa-b1b7-171a44f23290}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="monitor">
+      <UniqueIdentifier>{6c8556fb-686d-46f4-98e7-7448a279c654}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\common\configure.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\general.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\storage.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\proto\message.pb.cc">
+      <Filter>proto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\private_key.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\daemon.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\ecc_sm2.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\slave\slave_service.cpp">
+      <Filter>slave</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\slave\main.cpp">
+      <Filter>slave</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\slave\slave_executor.cpp">
+      <Filter>slave</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\overlay\peer_message.cpp">
+      <Filter>overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\api\web_server.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\monitoragent.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\system_manager.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\monitor_slave.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\common\configure.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\general.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\storage.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\proto\message.pb.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\private_key.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\daemon.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\entry_cache.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\ecc_sm2.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\proto\pb2json.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\slave\slave_service.h">
+      <Filter>slave</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\slave\slave_executor.h">
+      <Filter>slave</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\overlay\peer.h">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\zmq_helper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\api\web_server.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\monitoragent.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\system_manager.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\monitor_slave.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\proto\message.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="..\..\src\common\Makefile.am">
+      <Filter>common</Filter>
+    </None>
+    <None Include="..\..\src\slave\Makefile.am">
+      <Filter>slave</Filter>
+    </None>
+  </ItemGroup>
+</Project>

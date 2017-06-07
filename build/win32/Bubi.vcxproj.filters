@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ledger">
+      <UniqueIdentifier>{c64849c3-103b-4cc3-840e-4959d5450a34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{ba5f52bf-f102-4596-a4cd-35240d6080c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{8d3a181e-f1a8-4bec-b842-b4f80ca13c5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="overlay">
+      <UniqueIdentifier>{1489e434-0b2d-4595-a8a8-ef2ed1a6ff81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="glue">
+      <UniqueIdentifier>{3917965e-3946-4aa1-8f53-ac9edd6ad47d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{904378a7-6fb9-4140-9518-5cc9be76d064}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ledger\operation">
+      <UniqueIdentifier>{c3e5bab3-6e7d-4da6-a843-f54640d3663f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="slave">
+      <UniqueIdentifier>{d993b4f5-4884-45ca-9f03-8e34890876a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="monitor">
+      <UniqueIdentifier>{757a8ac2-23bb-4394-94f6-9998a039fbb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="api">
+      <UniqueIdentifier>{9cd9bccc-0acc-4fb6-80c5-4106b43aac4c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\main\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\configure.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\general.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\storage.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\overlay\peer.cpp">
+      <Filter>overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\overlay\peer_manager.cpp">
+      <Filter>overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\account.cpp">
+      <Filter>ledger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\proto\message.pb.cc">
+      <Filter>proto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\ledger_manager.cpp">
+      <Filter>ledger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\overlay\broadcast.cpp">
+      <Filter>overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\ledger_frm.cpp">
+      <Filter>ledger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\ledger_fetch.cpp">
+      <Filter>ledger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\private_key.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\daemon.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\glue\glue_manager.cpp">
+      <Filter>glue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\glue\transaction_set_frm.cpp">
+      <Filter>glue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\transaction_frm.cpp">
+      <Filter>ledger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\createaccount_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\operation_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\payment_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\setoptions_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\ecc_sm2.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\production_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\account_tree.cpp">
+      <Filter>ledger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\slave\master_service.cpp">
+      <Filter>slave</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\overlay\peer_message.cpp">
+      <Filter>overlay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\glue\consensus_receiver.cpp">
+      <Filter>glue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\glue\txset_fetcher.cpp">
+      <Filter>glue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\init_payment_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\record_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\slave\slave_executor.cpp">
+      <Filter>slave</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\monitoragent.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\system_manager.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\api\mq_server.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\api\web_server.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\pipeline_server.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\monitor_master.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\issue_unique_asset_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\issue_asset_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ledger\payment_unique_asset_ope_frm.cpp">
+      <Filter>ledger\operation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\api\websocket_server.cpp">
+      <Filter>api</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\network.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\common\configure.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\general.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\storage.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\overlay\peer.h">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\overlay\peer_manager.h">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\account.h">
+      <Filter>ledger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\proto\message.pb.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\ledger_manager.h">
+      <Filter>ledger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\overlay\broadcast.h">
+      <Filter>overlay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\ledger_frm.h">
+      <Filter>ledger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\ledger_fetch.h">
+      <Filter>ledger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\private_key.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\daemon.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\entry_cache.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\glue\glue_manager.h">
+      <Filter>glue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\glue\transaction_set_frm.h">
+      <Filter>glue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\transaction_frm.h">
+      <Filter>ledger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\createaccount_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\operation_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\payment_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\setoptions_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\ecc_sm2.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\asset_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\proto\pb2json.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\production_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\merkle.h">
+      <Filter>ledger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\account_tree.h">
+      <Filter>ledger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\slave\master_service.h">
+      <Filter>slave</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\glue\consensus_receiver.h">
+      <Filter>glue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\init_payment_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\glue\txset_fetcher.h">
+      <Filter>glue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\record_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\slave\slave_executor.h">
+      <Filter>slave</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\monitoragent.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\system_manager.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\api\mq_server.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\api\web_server.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\zmq_helper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\pipeline_server.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\zmq_helper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\monitor_master.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\issue_unique_asset_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\issue_asset_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ledger\payment_unique_asset_ope_frm.h">
+      <Filter>ledger\operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\api\websocket_server.h">
+      <Filter>api</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\network.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\ledger\Makefile.am">
+      <Filter>ledger</Filter>
+    </None>
+    <None Include="..\..\src\proto\message.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="..\..\src\main\Makefile.am">
+      <Filter>main</Filter>
+    </None>
+    <None Include="..\..\src\common\Makefile.am">
+      <Filter>common</Filter>
+    </None>
+    <None Include="..\..\configure.ac" />
+    <None Include="..\..\src\overlay\Makefile.am">
+      <Filter>overlay</Filter>
+    </None>
+    <None Include="..\..\src\glue\Makefile.am">
+      <Filter>glue</Filter>
+    </None>
+  </ItemGroup>
+</Project>

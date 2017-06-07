@@ -1,0 +1,658 @@
+﻿syntax = "proto2";
+package protocol;
+option java_package = "cn.bubi.blockchain.adapter";
+//option cc_enable_arenas = true;
+
+//for hello message
+
+message Hello {
+    required uint32 ledger_version = 1;
+    required uint32 overlayVersion = 2;
+    required string bubiVersion = 3;
+    required int32 listeningPort = 4;
+    required string nodeId = 5;
+    //magic word to defend from network cross
+    required string network_type = 6;
+}
+
+//for ping messsage
+
+message Ping {
+    required uint64 nonce = 1;
+}
+
+//for pong message
+
+message Pong {
+    required uint64 nonce = 1;
+}
+
+//for peers message
+
+message Peers {
+    repeated Peer peers = 2;
+}
+
+message Peer {
+		required string ip = 1;
+		required int32 port = 2;
+		required int32 num_failures = 3;
+}
+
+//for threshold, master_weight default to 1, other to 0
+message AccountThreshold{
+		required uint32 master_weight = 1;
+		required uint32 low_threshold = 2;
+		required uint32 med_threshold = 3;
+		required uint32 high_threshold = 4;
+}
+
+//for signers
+message Signer {
+		required string address = 1;
+		required uint32 weight = 2;
+}
+
+//for account
+message Account
+{
+	enum Limit{
+			SIGNER = 100;
+	};
+	
+	required	int64		account_balance = 1;
+	required	int64		previous_ledger_seq = 2;
+	required	bytes		previous_tx_hash = 3;
+	required    string      account_address = 4;
+	repeated    Asset       assets =5;
+	required    int64       tx_seq = 6;
+	required    AccountThreshold thresholds = 7;
+	repeated    Signer      signers = 8;
+	required    bytes		metadata = 9;
+	optional    int64       metadata_version = 10;
+	repeated    UniqueAsset unique_asset = 11;
+}
+
+//Synchronous update
+message UpgradeRequest{
+	required string id =1 ; //validation id
+	required uint64 time = 2; //last message time
+	required uint32 ledger_version = 3 ; // now node ledger_version
+	optional string add_validator =4 ; // new validation node address
+	optional uint32 new_ledger_version = 5 ;//  new ledger version
+	required uint64 start_time = 6 ; // 
+}
+
+message UpgradeRequestEnv{
+	required UpgradeRequest request = 1;  
+	required Signature signature = 2 ; // sign date  and   pub_key
+}
+
+message LedgerUpgrade{
+	optional uint32 new_ledger_version = 1;
+	optional uint32 new_base_fee = 2;
+	optional uint32 new_base_reserve = 3;
+}
+
+message Value{
+	required bytes hash_set = 1;	
+	required uint64 close_time = 2;
+	optional LedgerUpgrade ledger_upgrade = 3;
+}
+
+//for ledger
+message LedgerHeader
+{
+	required	bytes		parent_hash = 1;
+	required	bytes		transaction_tree_hash = 2;
+	required	bytes		account_tree_hash = 3;
+	required	int64		ledger_sequence = 4;
+	required	Value  		consensus_value = 5;
+	required	bytes		hash = 6;
+	required    uint32      base_fee = 7;
+	required    uint32      base_reserve = 8;
+	required    uint32      ledger_version = 9;
+	required    int64       tx_count = 10;			
+
+}
+
+
+
+
+//for getledgers
+message GetLedgers
+{
+	required int64 ledger_seq = 1;
+	optional int64 ledger_num = 2;
+}
+
+//for ledger
+message Ledger
+{
+	required LedgerHeader ledger_header = 1;
+	repeated TransactionEnv transaction_envs = 2;
+}
+
+//for ledgers
+message Ledgers
+{
+	enum SyncCode{
+		OK = 0;          
+		OUT_OF_SYNC = 1;    
+		OUT_OF_LEDGERS = 2; 
+		BUSY = 3;           
+		REFUSE = 4;         
+		INTERNAL = 5;       
+	}
+	repeated Ledger ledger = 1;
+	optional SyncCode sync_code = 2;
+	optional int32 max_ledgers = 3;
+}
+
+//for tansaction message
+
+message CloseTimeRange{
+		required int64 minTime =1;
+		required int64 maxTime = 2;
+}
+
+message AssetProperty{
+	enum Type
+	{
+			NATIVE = 0;
+			IOU = 1;
+			UNIQUE = 2;
+			
+	};
+
+	required Type type = 1;
+	required string issuer = 2;
+	required string code = 3;
+}
+
+message Detail{
+	required int64 amount = 1; 
+	required int64 start = 2; //time begin
+	required int64 length = 3;//length
+	required string ext = 4;   //extension field
+}
+message Asset{
+	required AssetProperty   property = 1;
+	required int64			 amount = 2;
+	repeated Detail			 details = 3;
+}
+
+
+
+//operations struct
+message OperationCreateAccount{
+		required string dest_address = 1;
+		required int64 init_balance = 2;
+		optional AccountThreshold thresholds = 3;
+		repeated Signer signers = 4;
+		optional bytes  account_metadata = 5;
+}
+
+
+message OperationPayment{
+	required string destAddress = 1;
+	required   Asset  asset = 2;
+}
+
+message OperationInitPayment{
+	required string destAddress = 1;
+	required   Asset  asset = 2;
+}
+
+message OperationIssueAsset{
+	required   Asset  asset = 1;
+}
+
+
+
+message UniqueAsset{
+	required AssetProperty property = 1;
+	required bytes detailed = 2;
+}
+
+message OperationPaymentUniqueAsset{
+	required string				destAddress = 1;
+	required AssetProperty		asset_pro = 2;
+}
+
+
+message OperationRecord{
+	optional string address = 1;
+	required string id = 2;
+	required bytes	ext = 3;
+}
+
+
+
+message OperationIssueUniqueAsset{
+	required   UniqueAsset  asset = 1;
+}
+
+message OperationSetOptions {
+	optional uint32 master_weight = 1;
+	optional uint32 low_threshold = 2;
+	optional uint32 med_threshold = 3;
+	optional uint32 high_threshold = 4;
+	repeated Signer signers = 5;
+	optional bytes  account_metadata = 6;
+	optional int64  account_metadata_version = 7;
+}
+
+message Input{
+ required bytes hash = 1;
+ required int64 index = 2;
+ optional bytes metadata = 3;
+}
+
+message Output{
+	required string address = 1;
+	optional bytes metadata = 2;
+}
+
+message OperationProduction{
+	repeated Input inputs=1;
+	repeated Output outputs=2;
+}
+
+message OperationManageOrder{
+}
+
+message Operation {
+		enum Type {
+				CREATE_ACCOUNT = 0;
+				PAYMENT = 1;
+				ISSUE_ASSET = 2;
+				SET_OPTIONS = 4;
+				INIT_PAYMENT = 5;
+				PRODUCTION = 6;
+				ISSUE_UNIQUE_ASSET =7;
+				PAYMENT_UNIQUE_ASSET = 8;
+				RECORD = 9;
+	};  
+		required Type type = 1;
+		optional string source_address = 2; //if have not, then equal to tran's source address
+		optional OperationCreateAccount create_account = 3;
+		optional OperationPayment payment = 4;
+		optional OperationIssueAsset issue_asset = 5;
+		optional OperationSetOptions setoptions = 6;
+		optional OperationManageOrder manage_order = 7;
+		optional OperationInitPayment init_payment = 8;
+		optional OperationProduction production=9;
+		optional bytes metadata = 10;
+		optional OperationRecord	record = 11;
+		optional OperationIssueUniqueAsset issue_unique_asset = 12;
+		optional OperationPaymentUniqueAsset  payment_unique_asset =13;
+
+}
+
+message Transaction {
+		enum Limit{
+				OPERATIONS = 1000;
+		};
+	
+		// the source address
+		required string source_address = 1;
+		
+		// the source address
+		// required string source_publicKey = 2;
+		
+		// the fee the sourceAddress will pay
+		required uint32 fee = 2;
+		
+		required int64 sequence_number = 3;
+		
+		// validity range (inclusive) for the last ledger close time
+		optional CloseTimeRange close_time_range = 4;
+		
+		repeated Operation operations = 5;
+
+		optional bytes metadata = 6;
+}
+
+message Signature {
+		required string public_key = 1;
+		required bytes sign_data = 2;
+}
+
+
+message TransactionEnv {
+		enum Limit{
+				SIGNATURE = 100;
+		};
+		required Transaction transaction = 1;
+		// the signature
+		repeated Signature signatures = 2;
+}
+
+message TransactionEnvWrapper {
+		required TransactionEnv transaction_env = 1;
+
+		// follow this seggestion to make quick consensus
+		optional int64	suggest_ledger_seq = 2;
+}
+
+message TransactionEnvStore{
+		required TransactionEnv transaction_env = 1;
+		optional int32 error_code = 2;
+		optional bytes error_desc = 3;
+		optional int64 ledger_seq = 4;
+		optional int64 close_time = 5;
+}
+
+message SlaveVerifyRequest {
+		// the peer message to broadcast
+		required bytes peer_message = 1;
+		// the peer id
+		required int64 peer_id = 2;
+		// the transaction belongs to which txset
+		optional bytes txset_hash = 3;
+}
+
+message SlaveVerifyResponse {
+		// the peer message to broadcast
+		required bytes peer_message = 1;
+		// the peer id
+		optional int64 peer_id = 2;
+		// the transaction belongs to which txset
+		optional bytes txset_hash = 3;
+		// the peer message hash as key for record table
+		required bytes peer_message_hash = 4;
+		// the transaction hash
+		required bytes transaction_hash = 5;
+		// the transaction env hash
+		required bytes transaction_env_hash = 6;
+		// the signature
+		repeated string address = 7;
+}
+
+
+//for get transactions
+message GetTxHashSet{
+	required bytes hash = 1;
+}
+
+
+//transaction hash list
+message TxHashSet{
+	required bytes hash = 1;
+	required bytes previous_ledger_hash = 2;
+	repeated bytes hashs = 3;
+}
+
+
+//for get quorumset
+message GetQuorumset{
+	required bytes hash = 1;
+}
+
+message GetTxSet{
+	required bytes hash = 1;
+	repeated bytes hashs = 2;
+}
+
+//for transactions
+message TxSet{
+    //txset's hash
+	required bytes hash = 1;
+	required bytes previous_ledger_hash = 2;
+	//partial missing txs 
+	repeated TransactionEnv tran_envs = 3;
+}
+
+//for dont have
+message DontHave
+{
+    required int32 type = 1;
+    required bytes hash = 2;
+};
+
+//for consensus
+
+message Hash{
+	required bytes hash = 2;	
+}
+
+//PBFT protocol
+message PbftPrePrepare
+{
+	required int64 view_number = 1;
+	required int64 sequence = 2;
+	required int64 replica_id = 3;
+	required Value value = 4;
+	required bytes value_digest = 5;
+	required int64 block_seq = 6;
+}
+
+message PbftPrepare
+{
+	required int64 view_number = 1;
+	required int64 sequence = 2;
+	required int64 replica_id = 3;
+	required bytes value_digest = 4;
+}
+
+message PbftCommit
+{
+	required int64 view_number = 1;
+	required int64 sequence = 2;
+	required int64 replica_id = 3;
+	required bytes value_digest = 4;
+}
+
+message PbftCheckPoint
+{
+	required int64 sequence = 1;
+	required int64 replica_id = 2;
+	required bytes state_digest = 3;
+}
+
+message PbftPreparedSet
+{
+	required PbftEnv pre_prepare = 1;
+	repeated PbftEnv prepare = 2;
+}
+
+message PbftViewChange
+{
+	required int64 view_number = 1; //v+1
+	required int64 sequence = 2;     //n
+	repeated PbftEnv checkpoints = 3; //C
+	repeated PbftPreparedSet prepared_set = 4;  //prepared messages large than n
+	required int64 replica_id = 5;
+}
+
+message PbftNewView
+{
+	required int64 view_number = 1; //v+1
+	required int64 sequence = 2;     //sequence
+	required int64 replica_id = 3;
+	repeated PbftEnv view_changes = 4;     //V
+	repeated PbftEnv pre_prepares = 5;  //O
+}
+
+enum PbftMessageType {
+	    PBFT_TYPE_PREPREPARE = 0;
+	    PBFT_TYPE_PREPARE = 1;
+	    PBFT_TYPE_COMMIT = 2;
+		PBFT_TYPE_CHECKPOINT = 3;
+		PBFT_TYPE_VIEWCHANGE = 4;
+		PBFT_TYPE_NEWVIEW = 5;
+}
+
+enum PbftValueType {
+	    PBFT_VALUE_TX = 0;
+	    PBFT_VALUE_TXSET = 1;
+}
+
+message Pbft
+{
+	required uint32 round_number = 1; //for send again
+	required bytes validator_hash = 2;
+	required PbftMessageType type = 3;
+	optional PbftPrePrepare pre_prepare = 4;
+	optional PbftPrepare prepare = 5;
+	optional PbftCommit commit = 6;
+	optional PbftCheckPoint checkpoint = 7;
+	optional PbftViewChange view_change = 8;
+	optional PbftNewView new_view = 9;
+}
+
+message PbftEnv
+{
+ required Pbft pbft = 1;
+ required Signature signature = 2;
+}
+
+
+//for key value db storage
+message EntryList{
+	repeated bytes entry = 1;
+}
+
+message WsMessage {
+	required int64 type = 1; //1: ping
+	required bool request = 2; //true :request , false:reponse
+	required int64 sequence = 3;
+	required bytes data = 4;
+}
+
+//message interfaces for java
+enum ChainMessageType {
+	CHAIN_HELLO = 10; // response with CHAIN_STATUS = 2;
+	CHAIN_TX_STATUS = 11;
+	CHAIN_PEER_ONLINE = 12;
+	CHAIN_PEER_OFFLINE = 13;
+	CHAIN_PEER_MESSAGE = 14;
+	CHAIN_SUBMITTRANSACTION = 15;
+}
+
+
+//internal message
+message KeepOnline{
+	required string src_peer_addr = 1;
+	required int64	payload_seq = 2;
+}
+
+//internal message
+message KeepOnlineEnv{
+	required KeepOnline keeponline = 1;
+	required Signature signature = 2; 
+}
+
+//internal message
+message PayLoad {
+	required string src_peer_addr = 1; 
+	repeated string des_peer_addrs = 2;
+	required int64	timestamp = 4;					
+	required bytes  data = 5;			
+}
+
+
+//internal message
+message PayLoadEnv{
+	required PayLoad payload = 1;
+	required Signature signature = 2;
+}
+
+//register notification events
+message ChainHello {
+	repeated ChainMessageType api_list = 1;	//default enable all apis
+	required int64	timestamp = 2;					
+}
+
+
+//1.ChainHello response
+//2.async notification from local
+message ChainStatus {
+	required string self_addr		= 1;
+	required uint32 ledger_version	= 2;
+    required string bubi_version	= 3;
+	required int64	timestamp		= 4;		
+}
+
+message ChainPeerOnline {
+	required string peer_addr	= 1;
+	required string peer_ip		= 2;
+	required int32  peer_port	= 3;
+	required int64	timestamp = 4;					
+}
+
+message ChainPeerOffline {
+	required string peer_addr	= 1;
+	required int64	timestamp = 2;					
+}
+
+message ChainPeerMessage {
+	required string src_peer_addr = 1; 
+	repeated string des_peer_addrs = 2; 
+	required bytes	data = 3;		
+}
+
+message ChainTxStatus {
+	enum TxStatus {
+		UNDEFINED	= 0;
+		CONFIRMED	= 1;	// web server will check tx paramters, signatures etc fist, noitfy CONFIRMED if pass
+		PENDING		= 2;	// master will check futher before put it into pending queue
+		COMPLETE	= 3;	// notify if Tx write ledger successfully
+		FAILURE		= 4;	// notify once failure and set error_code
+	};
+
+	required TxStatus	status = 1;
+	required string		tx_hash = 2;
+	required string		source_address = 3;
+	optional int64		source_account_seq = 4;
+	optional int64		ledger_seq = 5;			//on which block this tx records
+	optional int64		new_account_seq = 6;		//new account sequence if COMPLETE
+	optional ERRORCODE	error_code = 7;			//use it if FAIL
+	optional string		error_desc = 8	;			//error desc
+	required int64		timestamp = 9;			
+}
+
+
+
+enum ERRORCODE
+{
+	ERRCODE_SUCCESS							= 0;
+	ERRCODE_INTERNAL_ERROR					= 1;
+	ERRCODE_INVALID_PARAMETER				= 2;
+	ERRCODE_ALREADY_EXIST					= 3;
+	ERRCODE_NOT_EXIST						= 4;
+	ERRCODE_TX_TIMEOUT						= 5;
+
+	ERRCODE_INVALID_PUBKEY					= 90;
+	ERRCODE_INVALID_PRIKEY					= 91;
+	ERRCODE_ASSET_INVALID					= 92;
+	ERRCODE_INVALID_SIGNATURE				= 93;
+	ERRCODE_INVALID_ADDRESS					= 94;
+	ERRCODE_TIME_NOT_IN_RANGE				= 95;
+	ERRCODE_NO_NETWORK_CONSENSUS			= 96;
+	ERRCODE_MISSING_OPERATIONS				= 97;
+	ERRCODE_LAGER_OPERATIONS				= 98;
+	ERRCODE_BAD_SEQUENCE					= 99;
+
+	ERRCODE_ACCOUNT_LOW_RESERVE				= 100;   //BUBI LOW RESERVE
+	ERRCODE_ACCOUNT_SOURCEDEST_EQUAL		= 101;
+	ERRCODE_ACCOUNT_DEST_EXIST				= 102;
+	ERRCODE_ACCOUNT_NOT_EXIST				= 103;
+	ERRCODE_ACCOUNT_ASSET_LOW_RESERVE		= 104;   //IOU LOW RESERVE
+	ERRCODE_ACCOUNT_ASSET_AMOUNT_TOO_LARGE	= 105;
+
+	ERRCODE_SEQNUMBER_NOT_MATCH				= 110;
+	ERRCODE_FEE_NOT_ENOUGH					= 111;
+	ERRCODE_TIMEBOUND_TOO_EARLY				= 112;
+	ERRCODE_TIMEBOUND_TOO_LATE				= 113;
+	ERRCODE_OUT_OF_TXCACHE					= 114;
+
+	ERRCODE_WEIGHT_NOT_VALID				= 120;
+	ERRCODE_INPUT_NOT_EXIST					= 130;
+	ERRCODE_INPUT_INVALID					= 131;
+	ERRCODE_NOT_SUPPLY						= 132;
+
+
+	ERRCODE_INVALID_DATAVERSION				= 144; 
+};

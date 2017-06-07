@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="run" name="APITest">
+	<property name="src" value="${basedir}\src" />
+	<property name="bin" value="${basedir}\bin" />
+	<property name="lib" value="${basedir}\libs" />
+	<property name="report" value="${basedir}\test-output" />
+	<property name="suite" value="${basedir}" />
+	<property name="debuglevel" value="source,lines,vars" />
+
+	<tstamp>
+		<format property="nowstamp" pattern="yyyyMMdd-HHmmss" locale="en" />
+	</tstamp>
+
+	<path id="classpath">
+		<pathelement location="." />
+		<pathelement location="${bin}" />
+		<fileset dir="${lib}/">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<path id="sourcepath">
+		<pathelement location="./src" />
+	</path>
+
+	<target name="clean">
+		<delete dir="${bin}" failonerror="No" />
+		<mkdir dir="${bin}" />
+	</target>
+
+	<target depends="clean,deletedir" name="build">
+		<javac srcdir="${src}" debug="true" sourcepathref="sourcepath" debuglevel="${debuglevel}" destdir="${bin}" includeAntRuntime="false">
+			<compilerarg line="-encoding GBK " />
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+	<target name="deletedir">
+		<delete includeEmptyDirs="true">
+			<fileset dir="${report}/TestNG/" includes="**/*" />
+			<fileset dir="${report}/HtmlReport/" includes="**/*" />
+		</delete>
+	</target>
+	<taskdef resource="testngtasks" classpath="${lib}/testng-6.8.5.jar" />
+	<target name="run" depends="build">
+		<testng classpathref="classpath" outputdir="${report}/TestNG/${nowstamp}" useDefaultListeners="false" listeners="org.uncommons.reportng.HTMLReporter,org.testng.reporters.FailedReporter">
+			<xmlfileset dir="${report}" includes="testng.xml">
+			</xmlfileset>
+			<sysproperty key="org.uncommons.reportng.title" value="api function test" />
+			<!--xml test suite file -->
+			<xmlfileset dir="${suite}">
+				<include name="api_suite.xml" />
+			</xmlfileset>
+
+		</testng>
+		<zip destfile="${report}/TestNG/Report.zip" basedir="${report}/TestNG/${nowstamp}/html">
+				</zip>
+		<fail message="ERROR: One or more tests failed! Check test reports " if="test.failed" />
+
+	</target>
+
+</project>

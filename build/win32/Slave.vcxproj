@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\api\web_server.cpp" />
+    <ClCompile Include="..\..\src\monitor\monitoragent.cpp" />
+    <ClCompile Include="..\..\src\monitor\monitor_slave.cpp" />
+    <ClCompile Include="..\..\src\monitor\system_manager.cpp" />
+    <ClCompile Include="..\..\src\overlay\peer_message.cpp" />
+    <ClCompile Include="..\..\src\slave\slave_executor.cpp" />
+    <ClCompile Include="..\..\src\slave\main.cpp" />
+    <ClCompile Include="..\..\src\slave\slave_service.cpp" />
+    <ClCompile Include="..\..\src\common\configure.cpp" />
+    <ClCompile Include="..\..\src\common\daemon.cpp" />
+    <ClCompile Include="..\..\src\common\ecc_sm2.cpp" />
+    <ClCompile Include="..\..\src\common\general.cpp" />
+    <ClCompile Include="..\..\src\common\private_key.cpp" />
+    <ClCompile Include="..\..\src\common\storage.cpp" />
+    <ClCompile Include="..\..\src\proto\message.pb.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\api\web_server.h" />
+    <ClInclude Include="..\..\src\common\zmq_helper.h" />
+    <ClInclude Include="..\..\src\monitor\monitoragent.h" />
+    <ClInclude Include="..\..\src\monitor\monitor_slave.h" />
+    <ClInclude Include="..\..\src\monitor\system_manager.h" />
+    <ClInclude Include="..\..\src\overlay\peer.h" />
+    <ClInclude Include="..\..\src\slave\slave_executor.h" />
+    <ClInclude Include="..\..\src\slave\slave_service.h" />
+    <ClInclude Include="..\..\src\common\configure.h" />
+    <ClInclude Include="..\..\src\common\daemon.h" />
+    <ClInclude Include="..\..\src\common\ecc_sm2.h" />
+    <ClInclude Include="..\..\src\common\general.h" />
+    <ClInclude Include="..\..\src\common\private_key.h" />
+    <ClInclude Include="..\..\src\common\storage.h" />
+    <ClInclude Include="..\..\src\proto\message.pb.h" />
+    <ClInclude Include="..\..\src\proto\pb2json.h" />
+    <ClInclude Include="..\..\src\utils\entry_cache.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Utils.vcxproj">
+      <Project>{85f7a975-b30b-487e-8f7b-90a19d775459}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\slave\Makefile.am" />
+    <None Include="..\..\src\common\Makefile.am" />
+    <None Include="..\..\src\proto\message.proto" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AF6002BA-6433-499D-B679-1EF51E1FCE46}</ProjectGuid>
+    <RootNamespace>Entry</RootNamespace>
+    <ProjectName>Slave</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\dbin\</OutDir>
+    <IntDir>$(SolutionDir)\msvcinter\$(ProjectName)\$(ConfigurationName)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)\bin\</OutDir>
+    <IntDir>$(SolutionDir)\msvcinter\$(ProjectName)\$(ConfigurationName)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../src;../../src/3rd/win32/include;../../src/3rd/win32/include/postgresql</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BUBI_SLAVE;WIN32;_SCL_SECURE_NO_WARNINGS;ASIO_STANDALONE;_WEBSOCKETPP_CPP11_STL_;WIN32_LEAN_AND_MEAN;_SHARED_PTR_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>LibHttp_d.lib;Ed25519-donna_d.lib;libzmq_d.lib;ws2_32.lib;iphlpapi.lib;winmm.lib;leveldb_d.lib;json_d.lib;sqlite3_d.lib;libprotobuf_d.lib;libeay32.lib;ssleay32.lib;libpq.lib;libsoci_core_4_0_d.lib;libsoci_postgresql_4_0_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../src/3rd/win32/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <StackReserveSize>5000000</StackReserveSize>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../src;../../src/3rd/basic/include;../../src/rocksdb/include;../../src/3rd/asio/include;../../src/3rd/soci/include/;../../src\3rd\basic\include\postgresql;../../src/3rd/websocketpp;C:\Program Files\ZeroMQ 4.0.4\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BUBI_ENTRY;WIN32;_SCL_SECURE_NO_WARNINGS;ASIO_STANDALONE;_WEBSOCKETPP_CPP11_STL_;WIN32_LEAN_AND_MEAN;_SHARED_PTR_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libzmq-v120-mt-gd-4_0_4.lib;ws2_32.lib;iphlpapi.lib;winmm.lib;leveldb_d.lib;json_d.lib;sqlite3_d.lib;libprotobuf_d.lib;libeay32.lib;ssleay32.lib;libpq.lib;libsoci_core_4_0_d.lib;libsoci_postgresql_4_0_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>../../src/3rd/basic/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../src;../../src/3rd/basic/include;../../src/rocksdb/include;../../src/3rd/asio/include;../../src/3rd/soci/include/;../../src\3rd\basic\include\postgresql;../../src/3rd/websocketpp;../../src/3rd/basic/include/mysql</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BUBI_SLAVE;WIN32;_SCL_SECURE_NO_WARNINGS;ASIO_STANDALONE;_WEBSOCKETPP_CPP11_STL_;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../../src/3rd/basic/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libzmq.lib;leveldb.lib;json.lib;sqlite3.lib;iphlpapi.lib;libprotobuf.lib;libeay32.lib;ssleay32.lib;libpq.lib;libsoci_core_4_0.lib;libsoci_postgresql_4_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../src;../../src/3rd/basic/include;../../src/rocksdb/include;../../src/3rd/asio/include;../../src/3rd/soci/include/;../../src\3rd\basic\include\postgresql;../../src/3rd/websocketpp;C:\Program Files\ZeroMQ 4.0.4\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BUBI_ENTRY;WIN32;_SCL_SECURE_NO_WARNINGS;ASIO_STANDALONE;_WEBSOCKETPP_CPP11_STL_;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>../../src/3rd/basic/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libzmq-v120-mt-4_0_4.lib;leveldb.lib;json.lib;sqlite3.lib;iphlpapi.lib;libprotobuf.lib;libeay32.lib;ssleay32.lib;libpq.lib;libsoci_core_4_0.lib;libsoci_postgresql_4_0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

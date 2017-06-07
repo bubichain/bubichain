@@ -1,0 +1,22 @@
+{
+  "private_key": "privbtaP5b9c795G1SEanZ8BxuB4B5gccVVgDXT7zFE3ptFm7aMGmg9j",
+  "public_key": "1F6ZLYr1YTHFeT3gii4sHCN1sMZs8DcvMkNXdnhpsJ4",
+  "source_address": "bubiV8iEEcBFxsiwNQ91qmaojoeiAD4JMQBH1gvC",
+  "url1.8": "http://bubichain-qa.chinacloudapp.cn:19333/",
+  "url2.0":"http://127.0.0.1:19333/",
+  "url19343":"http://192.168.1.153:19333/",
+  "base_fee": 1000,
+  "base_reserve": 10000000,
+  "fee": 1000,
+  "init_balance": 30000000,
+  "push_ip":"127.0.0.1",
+  "pull_ip":"127.0.0.1",
+  "push_port":4053,
+  "pull_port":4054,
+  "url_get":"http://127.0.0.1:19333/",
+  "get_Url2":"http://127.0.0.1:19333/",
+  "url":"127.0.0.1",
+  "bubiport":19333
+   
+  
+}

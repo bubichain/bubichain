@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="source"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_111"/>
+	<classpathentry kind="lib" path="libs/bubi_tools_v1.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/ChainMessage.jar" sourcepath="source"/>
+	<classpathentry kind="lib" path="libs/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="libs/commons-codec-1.3.jar"/>
+	<classpathentry kind="lib" path="libs/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="libs/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="libs/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="libs/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="libs/ed25519.jar"/>
+	<classpathentry kind="lib" path="libs/eddsa-0.1.0-sources.jar"/>
+	<classpathentry kind="lib" path="libs/extentreports-2.41.0-sources.jar"/>
+	<classpathentry kind="lib" path="libs/extentreports-2.41.0.jar"/>
+	<classpathentry kind="lib" path="libs/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="libs/flexjson-2.1.jar"/>
+	<classpathentry kind="lib" path="libs/fluent-hc-4.5.2.jar"/>
+	<classpathentry kind="lib" path="libs/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="libs/gson-2.2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="libs/gson-2.2.4-sources.jar"/>
+	<classpathentry kind="lib" path="libs/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="libs/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="libs/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="libs/httpclient-cache-4.5.2.jar"/>
+	<classpathentry kind="lib" path="libs/httpclient-win-4.5.2.jar"/>
+	<classpathentry kind="lib" path="libs/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="libs/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-all-1.9.8.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-annotations-2.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-core-2.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-core-asl-1.8.8.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-databind-2.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-mapper-asl-1.8.8.jar"/>
+	<classpathentry kind="lib" path="libs/jackson-module-jaxb-annotations-2.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/jcommander-1.48.jar"/>
+	<classpathentry kind="lib" path="libs/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="libs/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="libs/protobuf-java-3.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/reportng-1.1.5.jar"/>
+	<classpathentry kind="lib" path="libs/testng-6.8.5.jar"/>
+	<classpathentry kind="lib" path="libs/velocity-dep-1.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/dll">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="InterfaceTest2.0/dll"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

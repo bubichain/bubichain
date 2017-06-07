@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss } %-5p %l %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="info" />
+			<param name="levelMax" value="fatal" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	
+	<appender name="log" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="./logs/TestLog.log" />
+		<param name="append" value="true"/>
+		<param name="DatePattern" value="'_'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %l %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="info" />
+			<param name="levelMax" value="fatal" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+
+	<!-- 根logger的设置 -->
+	<root>
+		<priority value="info" />
+		<appender-ref ref="console" />
+		<appender-ref ref="log" />
+	</root>
+</log4j:configuration> 

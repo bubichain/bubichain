@@ -1,0 +1,27 @@
+{
+	"web_socket_client": {
+		"monitor_id": "123123123123123",
+		"connect_address": "127.0.0.1:19336",
+		"bubi_config_path":"config/bubi.json"
+	},
+	"bubi":{
+		"address":"127.0.0.1",
+		"recv_port":"6054",
+		"send_port":"6053",
+        "recv_thread_count": 1
+	},
+	"slave":{
+		"address":"127.0.0.1",
+		"recv_port":"5054",
+		"send_port":"5053",
+        "recv_thread_count": 1
+	},
+    "logger": {
+        "path": "log/monitor.log",
+        "dest": "FILE|STDOUT|STDERR",
+        "level": "TRACE|INFO|WARNING|ERROR|FATAL",
+        "time_capacity": 1,
+        "size_capacity": 10,
+        "expire_days": 10
+    }
+}

@@ -1,0 +1,108 @@
+{
+	"db" :
+	{
+		"keyvalue_path" : "data/keyvalue.db",//hello
+		"rational_db_type": "pgsql",
+		"tmp_path" : "data",
+		"rational_string" : "hostaddr=127.0.0.1 port=5432 dbname=_1peer_without_slave user=postgres password=root",
+
+		"async_write": false
+	},
+	"system" :
+	{
+		"local_address":"",
+		"thread_count" : 16,
+		//delay [0-3] round,give time for tx to spread, it is helpful to make a consensus quickly
+		"delay_consensus" : 0
+	},
+    "slave": {
+		"address":"127.0.0.1",
+		"recv_port":"3054",
+		"send_port":"3053",
+        "recv_thread_count": 1
+    },
+	"monitor":
+	{
+		"address":"127.0.0.1",
+		"recv_port":"6053",
+		"send_port":"6054"
+	},
+	"mqserver":{
+		"address":"127.0.0.1",
+		"recv_port":"4053",
+		"send_port":"4054",
+		"recv_thread_count":1,
+		"listen_tx_status":true
+	},
+	"p2p":{
+		"node_private_key" : "privbtTWRZBbqWt5BcyZhBPiyn7RnBSn2FyCvJbZoMqUNHNLUitD1urJ",
+		"ssl":{
+			"chain_file" : "config/cacert.pem",
+			"private_key_file" : "config/privkey.pem",
+			"dhparam_file" : "config/dh1024.pem",
+			"verify_file" : "config/cacert.pem"
+		},
+		"consensus_network" :
+		{
+			"listen_port" : 9333,
+			"target_peer_connection" : 50,
+			"known_peers" :
+			[
+				
+			]
+		},
+		"transaction_network" :
+		{
+			"listen_port" : 9334,
+			"target_peer_connection" : 50,
+			"known_peers" :
+			[
+					
+			]
+		}
+	},
+	"webserver" :
+	{
+		"listen_addresses" : "0.0.0.0:19333",
+		"remote_authorized":false,
+		"ssl_enable" : false,
+		"ssl": {
+			"chain_file" : "config/cacert.pem",
+			"private_key_file" : "config/privkey.pem",
+			"dhparam_file" : "config/dh1024.pem"
+		}
+	},
+    "ledger" :
+    {
+        "genesis_account" : "bubiV8iEEcBFxsiwNQ91qmaojoeiAD4JMQBH1gvC",
+		"account" : {"address":"bubiV8iEEcBFxsiwNQ91qmaojoeiAD4JMQBH1gvC","private_key":"privbtaP5b9c795G1SEanZ8BxuB4B5gccVVgDXT7zFE3ptFm7aMGmg9j","public_key":"1F6ZLYr1YTHFeT3gii4sHCN1sMZs8DcvMkNXdnhpsJ4"},
+		"base_fee" : 1000,
+		"base_reserve" : 10000000,
+		"max_trans_per_ledger" : 10000,
+		"max_ledger_per_message" : 3,
+		"max_trans_in_memory" : 1000000,
+		"max_apply_ledger_per_round" : 3,
+		"test_model" : false
+	},
+	"logger" :
+	{
+		"path" : "log/bubi.log",
+		"dest" : "FILE|STDOUT|STDERR",
+		"level" : "INFO|WARNING|ERROR|FATAL",
+		"time_capacity" : 1,
+		"size_capacity" : 10,
+		"expire_days" : 5
+	},
+    "validation" :
+    {
+		"type":"one_node",
+        "is_validator" : true,
+        "address" : "bubiV8iAVNmv5w4irqZkB94kSZHE2zButNT3qBrC",
+        "node_private_key" : "privbtpSNqympJby3L2La4XF2gGd6QFwqxehXSGYzu3Foo7C9StCTdAH",
+        "close_interval" : 3,
+        "validators" :
+        [
+			"bubiV8iAVNmv5w4irqZkB94kSZHE2zButNT3qBrC"
+        ]
+    }
+}

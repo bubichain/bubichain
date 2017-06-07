@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="bubichain interfacetest 2.0">
+	<listeners>
+		<listener class-name="listener.Listener"></listener>
+		<listener class-name="listener.IReport"></listener>
+	</listeners>
+	<test verbose="2" name="Interface API 2.0">
+		<classes>
+			<class name="test.CreateAccountTest" />
+			<class name="test.IssueTest" />
+			<class name="test.PaymentTest" />
+			<class name="test.IssueAssetUniqueTest" />
+			<class name="test.InitPaymentTest" />
+			<class name="test.RecordTest" />
+			<class name="test.PayUniqueTest" />
+			<class name="test.SetOptionTest" />
+			<class name="test.ProductionTest" />
+			<class name="test.TxTest" />
+			<class name="test.ConsignTest" />
+			<class name="test.OperationTest" /> 
+			<class name="test.PeerMessageTest" />
+			<class name="test.HelloMessageTest" />
+		</classes>
+	</test> <!-- Default test -->
+</suite> <!-- Default suite -->

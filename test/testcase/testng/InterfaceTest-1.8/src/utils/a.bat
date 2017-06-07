@@ -1,0 +1,1 @@
+javac -classpath ../../libs/json-lib-2.4-jdk15.jar;../../libs/gson-2.2.4.jar; -d ./ Tx.java Result.java APIUtil.java TxUtil.java HttpUtil.java ../base/TestBase.java

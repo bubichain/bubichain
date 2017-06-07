@@ -1,0 +1,12 @@
+language: cpp
+sudo: false
+
+compiler: gcc
+
+dist: trusty
+
+script: ./build/linux/build.sh
+  
+branches:
+ only:
+- auto

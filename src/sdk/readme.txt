@@ -1,0 +1,1 @@
+注意，运行test下的sdk_test的时候，需要将dll目录下的对应版本的dll拷贝到sdk_test目录下

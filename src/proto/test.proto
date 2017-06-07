@@ -1,0 +1,22 @@
+message Lock
+{
+    required string depositary = 1;
+    required int64 starttime = 2;
+    required int64 endtime = 3;
+}
+message Unlock
+{
+    required string depositary = 1;
+}
+
+message OperationLockUnLock
+{
+    enum Action
+    {
+        LOCK = 0;
+        UNLOCK = 1;
+    }
+    required string destAddress = 1;
+    optional Lock lock = 2;
+    optional Unlock unlock = 3;
+}

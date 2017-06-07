@@ -1,0 +1,33 @@
+{
+
+  "interface_url":"http://192.168.10.81/",
+  
+  "api_url":"http://192.168.10.84:8080/api",
+  
+  "zhongtuobang_id":"33f2209047092831a3413f090e1f3630",
+  "zhongtuobang_secret":"d12ed7f0a30bebb157bdc81770fd2201",
+  "yangguang_id":"84b79b341adde491a6649f345fe0797b",
+  "yangguang_secret":"059c59b81ac12d312a7227697dcb0a51",
+  
+  "gege_id":"3c1e71a747249b58ac395f7bcb27f92f",
+  "gege_secret":"37fb5ccd1a661c6d9c25e66c6d640e0f",
+  "qianxiang_id":"62fb7101ca1e869e36f4a5144a2aa332",
+  "qianxiang_secret":"7fff59e9a9dda95422b77c088a784b8a",
+  "banma_id":"09af46a6baa453120d5fa38fbee130e5",
+  "banma_secret":"c74808edd5fc1424de4e639b0f30d8db",
+  "haohuo_id":"4d0d93fa5d24d4c94c9fb3021482ca56",
+  "haohuo_secret":"6fea4b2d06420c789053828837bab120",
+  "renren_id":"839d97a40b9c6e4987929329cd43021f",
+  "renren_secret":"1bbb484289acdeb2c85783830e5e6302",
+  "huaan_id":"f7d837bdd10997eb304fe191d79b91a0",
+  "huaan_secret":"9424bc147a55983a2f3d8cb0964cf126",
+  "madianzhang_id":"42ed0470b8a5b8bad8edc81a3bdda8e8",
+  "madianzhang_secret":"e068af328d01b0c05a36506f33da8003",
+  "jinxiang_id":"fcb0d0ed737106d5a7bb121bd6fb385a",
+  "jinxiang_secret":"522c0aecf997ce969fa226e77b679a7b",
+  
+  
+  "decoder_url":"http://192.168.10.85:8080/sign/assetCodeDecry",
+  "encoder_url":"http://192.168.10.85:8080/sign/assetCodeEncry"
+
+}

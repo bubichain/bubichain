@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="apitest">
+	<listeners>
+		<listener class-name="listener.Listener"></listener>
+		<listener class-name="listener.IReport"></listener>
+	</listeners>
+  <test verbose="2" name="Default test">
+    <classes>
+		<class name="cases.ApiTestAdd2Issue"></class>
+    	<class name="cases.ApiTestAdd2IssueAsync"></class>
+    	<class name="cases.ApiTestAssetGrant"></class>
+    	<class name="cases.ApiTestAssetGrantAsync"></class>
+    	<class name="cases.ApiTestAssetSend"></class>
+    	<class name="cases.ApiTestAssetSendAsync"></class>
+    	<class name="cases.ApiTestGetAccessToken"></class>
+    	<class name="cases.ApiTestGetTradeInfo"></class>
+		<class name="cases.ApiTestGetUserInfo"></class>
+		<class name="cases.ApiTestIssue"></class>
+    	<class name="cases.ApiTestIssueAsync"></class>
+    	<class name="cases.ApiTestRegister"></class>
+    	<class name="cases.ApiTestResetPassword"></class>
+    	<class name="cases.ApiTestShowDetail"></class>
+    	<class name="cases.ApiTestCreateEvidence"></class>
+    	<class name="cases.ApiTestModifyEvidence"></class>
+    	<class name="cases.ApiTestGetEvidenceInfo"></class>
+    	<class name="cases.ApiTestGetEvidenceHistory"></class>
+    	<class name="cases.ApiTestRecord"></class>
+    	</classes>
+  </test> <!-- Default test -->
+</suite> <!-- Default suite -->

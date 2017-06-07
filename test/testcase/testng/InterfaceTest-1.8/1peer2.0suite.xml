@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="2peer InterfaceTest 2.0">
+	<listeners>
+		<listener class-name="listener.IReport"></listener>
+		<listener class-name="listener.ExecutionListener"></listener>
+	</listeners>
+	<test verbose="2" name="Interface API 2.0" preserve-order="true">
+		<classes>
+		<!-- total 25 -->
+			<class name="cases.CreateAccountTest" />
+			<class name="cases.IssueTest" />
+			<class name="cases.TransferTest" />
+			<!-- blow cases are only for 2.0.0.0 -->
+			<class name="cases.StorageTest" />
+			<class name="cases.UniIssueTransferTest" />
+			<class name="cases.SupplyChainTest_ledger" />
+			<class name="cases.IssueTest_ledger" />
+			
+			
+		</classes>
+	</test> <!-- Default test -->
+</suite> <!-- Default suite -->

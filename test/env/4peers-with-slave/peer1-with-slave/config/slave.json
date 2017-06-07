@@ -1,0 +1,27 @@
+{
+	"bubi": {
+		"address":"127.0.0.1",
+		"recv_port":"3054",
+		"send_port":"3053",
+        "recv_thread_count": 1
+    },
+	"webserver" :
+	{
+		"listen_addresses" : "0.0.0.0:19334",
+		"index_name" : "index.html",
+		"direcotry" : "../web",
+		"ssl_enable" : false,
+		"chain_file" : "config/cacert.pem",
+		"private_key_file" : "config/privkey.pem",
+		"dhparam_file" : "config/dh1024.pem"
+	},
+	"logger" :
+	{
+		"path" : "log/bubi-slave.log",
+		"dest" : "FILE|STDOUT|STDERR",
+		"level" : "INFO|WARNING|ERROR|FATAL",
+		"time_capacity" : 1,
+		"size_capacity" : 10,
+		"expire_days" : 5
+	}
+}

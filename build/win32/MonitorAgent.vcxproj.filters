@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="common">
+      <UniqueIdentifier>{eb3f6b5d-e1bf-4b04-89e9-f3d7e8ea991c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{3bfb2d39-eb58-4346-8ee6-4276e30105fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="monitor">
+      <UniqueIdentifier>{4f7d0fa2-f7d3-4b33-9480-73dee06c6342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="upgrade">
+      <UniqueIdentifier>{b46f044f-a8a4-4082-bb22-9078b5bc23cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="alert">
+      <UniqueIdentifier>{b0410c9e-ccc3-48a6-8a0f-35997373c3da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="notice">
+      <UniqueIdentifier>{ea04986d-cb4a-4019-8a07-a8e30f80e462}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\common\configure.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\general.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\daemon.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\monitor.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\monitor_manager.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\processmessage.cpp">
+      <Filter>monitor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\common\pipeline_server.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\upgrade.cpp">
+      <Filter>upgrade</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\alert.cpp">
+      <Filter>alert</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\monitor\notice.cpp">
+      <Filter>notice</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\common\configure.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\general.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\daemon.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\Makefile.am" />
+    <ClInclude Include="..\..\src\monitor\monitor.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\monitor_manager.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\processmessage.h">
+      <Filter>monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\pipeline_server.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\common\zmq_helper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\upgrade.h">
+      <Filter>upgrade</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\alert.h">
+      <Filter>alert</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\monitor\notice.h">
+      <Filter>notice</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
