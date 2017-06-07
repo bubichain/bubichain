@@ -12,9 +12,8 @@
 - **可移植** 使用标准C++开发，支持windows，linux等各种平台
 
 
-## 架构 ##
+### 架构 ###
 
-###部署###
 布比区块链节点支持分布式部署，以满足高性能，高可靠需求。每个节点至少需要有一个bubi node，即一个bubi进程和一个SQL数据库组成。Bubi node支持横向扩展，以满足高可靠需求。Slave cluster为可选组件，用来分担bubi node的计算，支持动态扩展。Big data mining 为可选组件，可做大数据分析和挖掘。可参考如下部署图。
 
 ![](doc/deploy.png)
@@ -32,9 +31,9 @@ Reserve proxy或Endpoint map是为了将底层服务部署到广域网。如果�
 ![](doc/tx_flow.png)
 
 
-## 编译 ##
+### 编译 ###
 
-###Build on Ubuntu 14.04###
+#### Build on Ubuntu 14.04 ####
 - 安装依赖
 
 	sudo apt-get install automake autoconf libtool g++ cmake libidn11-dev
@@ -50,21 +49,22 @@ Reserve proxy或Endpoint map是为了将底层服务部署到广域网。如果�
 	进入build/linux目录，执行build.sh
 
 
-###Build on Windows with VS2013###
+#### Build on Windows with VS2013 ####
 
 	使用vs2013打开项目文件 build/win32/bubi.vs12.sln 编译
 
-## 部署 ##
+### 部署 ###
 	
-###linux下部署###
-###使用Docker部署###
+#### linux下部署 ####
+#### 使用Docker部署 ####
 
-## 运行benchmark ##
+### 运行benchmark ###
 	
 	benchmark位于test/benchmark。可以用来测试bubi底层性能。
 	下图是运行效果。
 
 ![](doc/benchmark.jpg)
 
+**[未完]**
 
 Copyright © 2016 Bubi Technologies Co., Ltd
