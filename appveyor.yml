@@ -1,0 +1,29 @@
+# Only test one combination: "Visual Studio 12 + Win32 + Debug".
+platform:
+  - Win32
+
+configuration:
+  - Debug
+
+environment:
+  matrix:
+    - language: cpp
+      image: Visual Studio 2013
+
+# Our build scripts run tests automatically; we don't want AppVeyor
+# to try to detect them itself.
+test: off
+
+install:
+  - echo TODO
+
+before_build:
+  - set generator=Visual Studio 12
+  - set vcplatform=Win32
+
+build_script:
+  - cd build/win32
+  - msbuild Bubi.vs12.sln /p:Configuration=Debug /p:Platform="Win32"
+
+skip_commits:
+  message: /.*\[skip appveyor\].*/
