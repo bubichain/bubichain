@@ -6,7 +6,7 @@ dist: trusty
 
 compiler: gcc
 
-script: ./build/linux/build.sh
+script: chmod +x ./build/linux/build.sh && ./build/linux/build.sh
 
 branches:
 - master
