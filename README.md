@@ -23,7 +23,14 @@ Reserve proxy或Endpoint map是为了将底层服务部署到广域网。如果�
 ### 系统交互 ###
 布比底层提供了多种接口，提交交易接口推荐使用SDK方式，这种提交为异步提交，结果会分阶段的通知给应用，比如CONFIRM，PENDING，COMPLETE或者FAILURE。另外可以使用WEB接口提交至bubi 或者slave。 查询请求只能发送到bubi进程。图中的PUB，SUB是ZMQ中的发布订阅模式，PUSH，PULL为任务模式，可以清晰的看到bubi，slave，sdk，monitor之间的通信方式。 Monitor与监控中心采用websocket模式，有利于实时告警。
 
+
 ![](doc/communication.png)
+
+### 模块 ###
+下图描述了bubi和slave内部的主要模块，以及重点模块间的交互。黄色的模块中含有线程，灰色的为外部持久化文件。为了提高性能，减少交易峰值时IO对性能的影响，设计上考虑了异步写入数据库的功能。蓝色为SDK或者使用者，与bubi通信采用web和MQ两种方式。
+
+![](doc/block.png)
+
 
 ### 交易流程 ###
 下图描述了交易的处理流程。slave不是必须的，如果没有slave，bubi会自己做验签工作。
@@ -53,11 +60,22 @@ Reserve proxy或Endpoint map是为了将底层服务部署到广域网。如果�
 
 	使用vs2013打开项目文件 build/win32/bubi.vs12.sln 编译
 
-### 部署 ###
+### 测试 ###
+	在test目录下的4peers-without-slave_test.sh 和4peers-with-slave_test.sh，分别用 于部署四个节点带slave和不带slave的测试。带slave的节点配置文件位于test/env/4peers-with-slave/peeri-with-slave目录下，不带slave的节点配置文件位于test/env/4peers-without-slave/peeri-without-slave目录下，i是节点标记1到4。
 	
-#### linux下部署 ####
-#### 使用Docker部署 ####
+	以test/env/4peers-with-slave/peer1-with-slave目录为例：
+	
+	bin 存放可执行文件
+	
+	confg 存放配置文件,bubi.json 是bubi的配置文件，slave.json 是slave的配置文件，可根据实际情况修改配置。bubi.json中db的用户名密码配置需与postgresql安装时设置一致。
+	
+	log 默认存放日志文件，可以在bubi.json中配置
+	
+	data 默认存放key-value db数据文件,可在bubi.json中配置
+	
+	执行test/4peers-without-slave_test.sh启动四个节点不带slave
+	
+	执行test/4peers-with-slave_test.sh启动四个节点带slave
 
-**[未完]**
 
 Copyright © 2016 Bubi Technologies Co., Ltd
