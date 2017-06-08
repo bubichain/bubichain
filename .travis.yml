@@ -1,12 +1,12 @@
 language: cpp
+
 sudo: required
+
 dist: trusty
 
-compiler:
-- gcc
+compiler: gcc
 
 script: ./build/linux/build.sh
-  
+
 branches:
- only:
 - master
