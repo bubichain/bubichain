@@ -6,7 +6,10 @@ dist: trusty
 
 compiler: gcc
 
-script: chmod +x ./build/linux/build.sh && ./build/linux/build.sh
+script: 
+- chmod +x ./autogen.sh && ./autogen.sh 
+- chmod +x ./configure && ./configure 
+- make
 
 branches:
 - master
