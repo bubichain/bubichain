@@ -1,5 +1,8 @@
-## Bubi Block Chain ##
+![](doc/logo.png)
 
+[![Build Status](https://travis-ci.org/bubichain/blockchain.svg?branch=master)](https://travis-ci.org/bubichain/blockchain)
+
+### 简介 ###
 布比区块链由布比(北京)网络技术有限公司发起并研发，旨在推动区块链技术的发展与应用。目前布比区块链正被应用于商业积分、电子券、预付卡、游戏装备、保险卡单、证券化资产等领域。
 
 
