@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/bubichain/blockchain.svg?branch=master)](https://travis-ci.org/bubichain/blockchain) [![CircleCI](https://circleci.com/gh/bubichain/blockchain.svg?style=shield)](https://circleci.com/gh/bubichain/blockchain) [![Build status](https://ci.appveyor.com/api/projects/status/3eg8rjtr16k023qq?svg=true)](https://ci.appveyor.com/project/bubichain/blockchain)
 
 ### 简介 ###
-布比区块链由布比(北京)网络技术有限公司发起并研发，旨在推动区块链技术的发展与应用。目前布比区块链正被应用于商业积分、电子券、预付卡、游戏装备、保险卡单、证券化资产等领域。
+布比区块链由布比(北京)网络技术有限公司发起并研发，旨在推动区块链技术的发展与应用。目前布比区块链正被广泛应用于商业积分、电子券、预付卡、游戏装备、保险卡单、证券化资产等领域。
 
 
 
